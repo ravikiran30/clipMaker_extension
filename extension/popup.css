@@ -1,0 +1,205 @@
+:root {
+  --bg: #15171c;
+  --panel: #1e2128;
+  --border: #2e333d;
+  --text: #e6e8ec;
+  --muted: #8b93a1;
+  --accent: #4f8cff;
+  --accent-hover: #3c7bf0;
+  --ok: #37c978;
+  --err: #ff5f5f;
+  --warn: #ffb020;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --panel: #f4f5f7;
+    --border: #d8dbe0;
+    --text: #15171c;
+    --muted: #6b7280;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 100%;
+  max-width: 380px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.4 system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  letter-spacing: 0.2px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex: none;
+}
+.dot.checking { background: var(--warn); }
+.dot.up { background: var(--ok); }
+.dot.down { background: var(--err); }
+
+label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  margin: 10px 0 4px;
+}
+
+input, select, button {
+  font: inherit;
+  width: 100%;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 8px 9px;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: var(--accent);
+}
+
+input.invalid {
+  border-color: var(--err);
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+.col { flex: 1; min-width: 0; }
+.col.duration { flex: 0 0 82px; }
+
+.duration-box {
+  padding: 8px 9px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.duration-box.good { color: var(--ok); border-color: var(--ok); }
+.duration-box.bad { color: var(--err); border-color: var(--err); }
+
+button {
+  margin-top: 14px;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px;
+}
+button:hover:not(:disabled) { background: var(--accent-hover); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+button.grab {
+  float: right;
+  width: auto;
+  margin: -2px 0 0;
+  padding: 1px 7px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+button.grab:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+button.secondary {
+  margin-top: 8px;
+  background: transparent;
+  border-color: var(--err);
+  color: var(--err);
+  font-weight: 500;
+}
+button.secondary:hover:not(:disabled) {
+  background: var(--err);
+  color: #fff;
+}
+
+.banner {
+  background: rgba(255, 95, 95, 0.12);
+  border: 1px solid var(--err);
+  color: var(--text);
+  border-radius: 7px;
+  padding: 8px 9px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.banner code {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--warn);
+  word-break: break-all;
+}
+.banner span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+
+#progress-wrap { margin-top: 10px; }
+#progress-bar {
+  height: 5px;
+  background: var(--panel);
+  border-radius: 3px;
+  overflow: hidden;
+}
+#progress-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.status {
+  margin-top: 9px;
+  font-size: 12px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+.status.working { border-color: var(--accent); }
+.status.done { border-color: var(--ok); color: var(--ok); }
+.status.error { border-color: var(--err); color: var(--err); }
+
+.path {
+  margin-top: 6px;
+  font-size: 10.5px;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.hidden { display: none; }

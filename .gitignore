@@ -1,0 +1,19 @@
+# Downloaded clips - these are your media, not source
+helper/clips/
+*.mp4
+*.mp3
+*.webm
+*.part
+
+# Runtime log (contains the URLs and titles you've clipped)
+helper/helper.log
+
+# Generated per-machine by install_ondemand.bat - absolute paths inside
+helper/clipmaker_host.bat
+helper/com.clipmaker.launcher.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

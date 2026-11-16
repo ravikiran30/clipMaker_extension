@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>ClipMaker</title>
+</head>
+<body>
+  <header>
+    <h1>ClipMaker</h1>
+    <span id="helper-dot" class="dot checking" title="Checking helper..."></span>
+  </header>
+
+  <div id="helper-warning" class="banner hidden">
+    <strong>Start the helper server first.</strong>
+    <code id="helper-cmd">start_helper.bat</code>
+    <span id="helper-detail"></span>
+  </div>
+
+  <label for="url">YouTube URL</label>
+  <input id="url" type="text" spellcheck="false" placeholder="https://www.youtube.com/watch?v=..." />
+
+  <div class="row">
+    <div class="col">
+      <label for="start">Start
+        <button class="grab" id="grab-start" title="Use the video's current time">now</button>
+      </label>
+      <input id="start" type="text" spellcheck="false" placeholder="0:00" />
+    </div>
+    <div class="col">
+      <label for="end">End
+        <button class="grab" id="grab-end" title="Use the video's current time">now</button>
+      </label>
+      <input id="end" type="text" spellcheck="false" placeholder="1:30" />
+    </div>
+    <div class="col duration">
+      <label>Duration</label>
+      <div id="duration" class="duration-box">--:--</div>
+    </div>
+  </div>
+
+  <label for="quality">Quality</label>
+  <select id="quality">
+    <option value="best">Best available</option>
+    <option value="1080">1080p</option>
+    <option value="720" selected>720p</option>
+    <option value="480">480p</option>
+    <option value="mp3">Audio only (MP3)</option>
+  </select>
+
+  <button id="go">Download Clip</button>
+  <button id="cancel" class="secondary hidden">Cancel</button>
+
+  <div id="progress-wrap" class="hidden">
+    <div id="progress-bar"><span id="progress-fill"></span></div>
+  </div>
+
+  <div id="status" class="status hidden"></div>
+  <div id="path" class="path hidden"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

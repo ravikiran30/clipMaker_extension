@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "ClipMaker",
+  "version": "1.0.0",
+  "description": "Download a trimmed clip from a YouTube video using a local yt-dlp helper.",
+  "permissions": ["activeTab", "tabs", "downloads", "storage", "scripting", "nativeMessaging"],
+  "host_permissions": [
+    "http://127.0.0.1:5005/*",
+    "https://www.youtube.com/*",
+    "https://m.youtube.com/*",
+    "https://music.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "ClipMaker",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
